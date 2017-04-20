@@ -21,5 +21,13 @@
   },
   "keywords": [],
   "author": "Dominik Burgdörfer <db@domachine.de> (https://domachine.de/)",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domachine/speedstar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domachine/speedstar/issues"
+  },
+  "homepage": "https://github.com/domachine/speedstar#readme"
 }
