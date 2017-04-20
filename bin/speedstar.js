@@ -16,7 +16,7 @@ const buildTemplates = require('../lib/build-templates')
 if (require.main === module) {
   process.on('unhandledRejection', err => { throw err })
   const args = require('subarg')(process.argv.slice(2))
-  const templatePattern = args.templates || 'templates/**/*.js'
+  const templatePattern = args.templates || 'templates/*'
   const templateBasedir = (
     args['template-basedir'] ||
       join(process.cwd(), 'templates')
