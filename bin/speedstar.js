@@ -22,7 +22,7 @@ if (require.main === module) {
       join(process.cwd(), 'templates')
   )
   const pagesBasedir = args['pages-basedir'] || join(process.cwd(), 'pages')
-  const output = args.output || args.o || '.cms/app.js'
+  const output = args.output || args.o || 'app.js'
   const pagesPrefix = 'pages/'
   const pagesSuffix = '.md'
   const pagesPattern = `${pagesPrefix}**/*${pagesSuffix}`
