@@ -1,23 +1,17 @@
 {
   "name": "speedstar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Static site generator for progressive web applications",
   "main": "boot.js",
   "bin": {
     "speedstar": "bin/speedstar.js"
-  },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
   },
   "dependencies": {
     "bluebird": "^3.5.0",
     "gaze": "^1.1.2",
     "gray-matter": "^2.1.1",
     "mkdirp": "^0.5.1",
-    "react": "^15.5.4",
-    "react-router-dom": "^4.1.1"
+    "subarg": "^1.0.0"
   },
   "devDependencies": {
     "standard": "^10.0.2"
