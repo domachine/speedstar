@@ -4,7 +4,7 @@
   "description": "",
   "main": "boot.js",
   "bin": {
-    "speedstar": "speedstar.js"
+    "speedstar": "bin/speedstar.js"
   },
   "browserify": {
     "transform": [
