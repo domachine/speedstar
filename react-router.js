@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import boot from '../speedstar-boot'
+import boot from './boot'
 
 class PageLoader extends Component {
   constructor ({ app, page }) {
