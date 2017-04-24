@@ -12,7 +12,10 @@ function boot (app, pathname, fn) {
       xhr.onerror = function () { reject(xhr) }
       xhr.onload = function () {
         if ((xhr.status / 100 | 0) === 2) {
-          return resolve(matter(xhr.responseText))
+          var page = matter(xhr.responseText)
+          delete page.orig
+          page.name = url
+          return resolve(page)
         }
         reject(xhr)
       }

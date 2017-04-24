@@ -17,6 +17,8 @@ async function render ({ pages, pagesPrefix, pagesSuffix }, fn) {
       const abs = join(pagesPrefix, page) + pagesSuffix
       const res = await fs.readFileAsync(abs, 'utf-8')
       const pageObject = matter(res)
+      delete pageObject.orig
+      pageObject.name = page
       const str = await fn(page, pageObject)
       await mkdirp(dirname(join(output, page)))
       await fs.writeFileAsync(join(output, page) + '.html', str)
