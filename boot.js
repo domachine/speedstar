@@ -1,6 +1,6 @@
 'use strict'
 
-var matter = require('gray-matter')
+var matter = require('front-matter')
 
 module.exports = boot
 
@@ -12,9 +12,12 @@ function boot (app, pathname, fn) {
       xhr.onerror = function () { reject(xhr) }
       xhr.onload = function () {
         if ((xhr.status / 100 | 0) === 2) {
-          var page = matter(xhr.responseText)
-          delete page.orig
-          page.name = url
+          var m = matter(xhr.responseText)
+          var page = {
+            name: url,
+            data: m.attributes,
+            content: m.body
+          }
           return resolve(page)
         }
         reject(xhr)

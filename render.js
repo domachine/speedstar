@@ -3,7 +3,7 @@
 const bluebird = require('bluebird')
 const fs = bluebird.promisifyAll(require('fs'))
 const { dirname, join } = require('path')
-const matter = require('gray-matter')
+const matter = require('front-matter')
 const subarg = require('subarg')
 const mkdirp = bluebird.promisify(require('mkdirp'))
 
@@ -16,9 +16,12 @@ async function render ({ pages, pagesPrefix, pagesSuffix }, fn) {
     Object.keys(pages).map(async page => {
       const abs = join(pagesPrefix, page) + pagesSuffix
       const res = await fs.readFileAsync(abs, 'utf-8')
-      const pageObject = matter(res)
-      delete pageObject.orig
-      pageObject.name = page
+      const m = matter(res)
+      const pageObject = {
+        name: page,
+        data: m.attributes,
+        content: m.body
+      }
       const str = await fn(page, pageObject)
       await mkdirp(dirname(join(output, page)))
       await fs.writeFileAsync(join(output, page) + '.html', str)
